@@ -1,7 +1,5 @@
 const config = require('./config.json');
 const Discord = require('discord.js');
-var aliases = require("./aliases.json")
-var convert = require('xml-js');
 var colors = require('colors');
 const fs = require("fs");
 const util = require('util');
@@ -14,20 +12,6 @@ exports.bot = bot
 exports.dc = Discord
 
 exports.config = config
-
-
-// Discordbots.org
-const DBL = require("dblapi.js");
-const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2NDkwODU3ODQ3ODYyMDcwNCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTMzNzY1Mjg3fQ.FQ12uCUqcnhlhSvcD7d8Hcuuy-csfAA6tFN-3seQUI8', bot);
-
-// Optional events
-dbl.on('posted', () => {
-    console.log('Server count posted!'.bgGreen);
-})
-
-dbl.on('error', e => {
-    console.log(`Oops! ${e}`);
-})
 
 // Amazing things by Jonathan
 Number.prototype.clamp = function (min, max) {
@@ -54,9 +38,6 @@ bot.on("ready", () => {
     console.log(`[BOT] Status set to "${config.status_color}"`.green)
     console.log(`[BOT] Bot is online!\n[BOT] ${bot.users.size} users, in ${bot.guilds.size} servers connected.`.green);
     // bot.users.get(config.owner).send(":white_check_mark: Bot started succesfully!")
-    setInterval(() => {
-        dbl.postStats(bot.guilds.size);
-    }, 1800000);
 });
 
 bot.on("guildCreate", guild => {
@@ -99,28 +80,20 @@ bot.on("message", message => {
                 }
             }
             //      if(found === false){
-            //          message.reply("unknown command")
+            //          message.reply("Command not found, please try again.")
             //      }
         } else {
             if (message.guild.me.hasPermission("SEND_MESSAGES") === false) return;
             if (commands[cmd].isPublic) {
                 commands[cmd].run(message, args)
-                fs.writeFileSync("./other/command_usage.txt", (parseInt(fs.readFileSync("./other/command_usage.txt", "utf8")) + 1).toString(), console.error)
             } else if (message.member.roles.find("name", config.access)) {
                 commands[cmd].run(message, args)
-                fs.writeFileSync("./other/command_usage.txt", (parseInt(fs.readFileSync("./other/command_usage.txt", "utf8")) + 1).toString(), console.error)
             } else {
                 message.reply("You do not have permission to use the command")
             }
         }
     }
 })
-
-bot.on('messageReactionAdd', (reaction, user) => {
-    if (reaction.emoji.name === "❤") {
-        fs.writeFileSync("./other/counter.txt", (parseInt(fs.readFileSync("./other/counter.txt", "utf8")) + 1).toString(), console.error)
-    }
-});
 
 bot.on("error", e => {
     if (e.message == "read ECONNRESET") {
