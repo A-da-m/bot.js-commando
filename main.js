@@ -34,7 +34,7 @@ bot.on("ready", () => {
     console.log(`[BOT] ${commandsloaded} Commands loaded!`.green)
     bot.user.setActivity(config.status);
     console.log(`[BOT] Activity set to "${config.status}"`.green)
-    bot.user.setStatus(config.status_color); //you can set a default game
+    bot.user.setStatus(config.status_color); //you can set a default playing statys
     console.log(`[BOT] Status set to "${config.status_color}"`.green)
     console.log(`[BOT] Bot is online!\n[BOT] ${bot.users.size} users, in ${bot.guilds.size} servers connected.`.green);
     // bot.users.get(config.owner).send(":white_check_mark: Bot started succesfully!")
