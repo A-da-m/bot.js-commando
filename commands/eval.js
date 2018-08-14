@@ -1,5 +1,5 @@
 var main = require("../main.js")
-var config = require("../config.json")
+var config = require("../settings/config.json")
 var catList = require("../settings/catList.json")
 
 exports.run = (message,args) => {
