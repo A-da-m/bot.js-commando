@@ -1,0 +1,27 @@
+{
+  "name": "discord-template",
+  "version": "1.0.0",
+  "description": "A Template for creating your very own Discord.JS Discord bot. ",
+  "main": "main.js",
+  "repository": {
+
+    "type": "git",
+    "url": "git+https://github.com/abcdan/discord-template.git"
+  },
+  "keywords": [
+    "Node.js"
+  ],
+  "author": "discord.fun",
+  "license": "GNU GPLv3",
+  "bugs": {
+    "url": "https://github.com/abcdan/discord-template/issues"
+  },
+  "homepage": "https://github.com/abcdan/discord-template#readme",
+  "dependencies": {
+    "colors": "^1.3.1",
+    "discord.js": "^11.4.2",
+    "fs": "0.0.1-security",
+    "request": "^2.88.0",
+    "util": "^0.11.0"
+  }
+}

@@ -1,2 +1,5 @@
 #ignore the configs
 config.json
+
+#ignore the modules
+node_modules/
