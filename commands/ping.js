@@ -1,5 +1,5 @@
 var main = require("../main.js")
-var config = require("../config.json")
+var config = require("../settings/config.json")
 
 exports.run = (message, args) => {
   var varStopwatch = Math.round(main.bot.ping)
@@ -7,7 +7,7 @@ exports.run = (message, args) => {
     embed: {
       color: 0xffffff,
       fields: [{
-        name: ":ping_pong: Pong",
+        name: "Here is my ping!",
         value: `:hourglass_flowing_sand: ${varStopwatch} ms\n:stopwatch: ${new Date().getTime() - message.createdTimestamp} ms`
       },
       ],
@@ -17,6 +17,12 @@ exports.run = (message, args) => {
       }
     }
   });
+}
+
+exports.help = {
+  cat: catList.general,
+  perm: 1, // Number 1 means that this command can be seen by everyone in the help message.
+  desc: "Pong!"
 }
 
 exports.isPublic = true

@@ -1,4 +1,4 @@
-const config = require('./config.json');
+const config = require('./settings/config.json');
 const Discord = require('discord.js');
 var colors = require('colors');
 const fs = require("fs");
@@ -18,15 +18,17 @@ Number.prototype.clamp = function (min, max) {
     return Math.max(min, Math.min(max, this.valueOf()))
 }
 
-// Put everything in console
-
+// Check for the commands
 var commands = {}
 fs.readdirSync("./commands").forEach(f => {
     var name = f.match(/\w+(?=\.js)/)[0]
     commands[name] = require("./commands/" + f)
 })
+
+// List of commands
 exports.c = commands
-console.log(Object.keys(commands).join(`, `).cyan)
+console.log(`[BOT] Loading commands...`.green);
+console.log("[BOT] Commands: ".green +Object.keys(commands).join(`, `).cyan)
 
 // Error
 bot.on("ready", () => {

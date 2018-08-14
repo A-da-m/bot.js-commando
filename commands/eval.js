@@ -1,5 +1,5 @@
 var main = require("../main.js")
-var config = require("../config.json")
+var config = require("../settings/config.json")
 
 exports.run = (message, args) => {
     if (message.author.id === main.config.owner) {
@@ -19,5 +19,11 @@ exports.run = (message, args) => {
         message.reply(":x: This command can only be used by the person who owns me.")
     }
 }
+
+exports.help = {
+    cat: catList.owner,
+    perm: 2, // Number 2 means that only you, the bot owner, will see this command in the help message.
+    desc: "Put command description over here"
+  }
 
 exports.isPublic = true
