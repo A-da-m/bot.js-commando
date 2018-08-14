@@ -39,7 +39,16 @@ bot.on("ready", () => {
     bot.user.setStatus(config.status_color); //you can set a default playing statys
     console.log(`[BOT] Status set to "${config.status_color}"`.green)
     console.log(`[BOT] Bot is online!\n[BOT] ${bot.users.size} users, in ${bot.guilds.size} servers connected.`.green);
-    // bot.users.get(config.owner).send(":white_check_mark: Bot started succesfully!")
+    bot.users.get(config.owner).send({
+        embed: {
+          color: 0x77B255,
+          description: ":white_check_mark: Bot started!",
+          timestamp: new Date(),
+          footer: {
+            text: `⏲`
+          }
+        }
+      });
 });
 
 bot.on("guildCreate", guild => {
@@ -55,7 +64,7 @@ bot.on("guildCreate", guild => {
           ],
           timestamp: new Date(),
           footer: {
-            text: `:clock:`
+            text: `⏲`
           }
         }
       });
@@ -75,7 +84,7 @@ bot.on("guildDelete", guild => {
           ],
           timestamp: new Date(),
           footer: {
-            text: `:clock:`
+            text: `⏲`
           }
         }
       });
