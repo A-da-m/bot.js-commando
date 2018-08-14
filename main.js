@@ -48,6 +48,7 @@ bot.on("guildCreate", guild => {
           fields: [{
             name: `:white_check_mark: I've joined a guild!`,
             value: `:speech_balloon: **${guild.name}** (${guild.id})\n:crown: **${guild.owner.user.username}** (${guild.owner.user.id})`
+            // The speech_balloon is the name of the guild and the crown is the guild owner
           },
           ],
           timestamp: new Date(),
@@ -67,6 +68,7 @@ bot.on("guildDelete", guild => {
           fields: [{
             name: `:x: I've been removed from a guild!`,
             value: `:speech_balloon: **${guild.name}** (${guild.id})\n:crown: **${guild.owner.user.username}** (${guild.owner.user.id})`
+            // The speech_balloon is the name of the guild and the crown is the guild owner
           },
           ],
           timestamp: new Date(),
