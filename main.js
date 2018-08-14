@@ -42,13 +42,39 @@ bot.on("ready", () => {
 
 bot.on("guildCreate", guild => {
     console.log(`[BOT] I've joined the guild ${guild.name} (${guild.id}), owned by ${guild.owner.user.username} (${guild.owner.user.id}).`.green);
-    bot.users.get(config.owner).send(`:white_check_mark: I've joined the guild **${guild.name}** (${guild.id}), owned by **${guild.owner.user.username}** (${guild.owner.user.id})`)
+    bot.users.get(config.owner).send({
+        embed: {
+          color: 0x77B255,
+          fields: [{
+            name: `:white_check_mark: I've joined a guild!`,
+            value: `:speech_balloon: **${guild.name}** (${guild.id})\n:crown: **${guild.owner.user.username}** (${guild.owner.user.id})`
+          },
+          ],
+          timestamp: new Date(),
+          footer: {
+            text: `${config.embed_footer_text}`
+          }
+        }
+      });
 });
 
 bot.on("guildDelete", guild => {
     // this event triggers when the bot is removed from a guild.
-    console.log(`[BOT] I have been removed from: ${guild.name} (id: ${guild.id})`.red);
-    bot.users.get(config.owner).send(`:x: I have been removed from: **${guild.name}** (id: ${guild.id})`)
+    console.log(`[BOT] I've been removed from: ${guild.name} (id: ${guild.id})`.red);
+    bot.users.get(config.owner).send({
+        embed: {
+          color: 0xDD2E44,
+          fields: [{
+            name: `:x: I've been removed from a guild!`,
+            value: `:speech_balloon: **${guild.name}** (${guild.id})\n:crown: **${guild.owner.user.username}** (${guild.owner.user.id})`
+          },
+          ],
+          timestamp: new Date(),
+          footer: {
+            text: `${config.embed_footer_text}`
+          }
+        }
+      });
     // client.user.setActivity(`Serving ${client.guilds.size} servers`);
 });
 
