@@ -15,11 +15,6 @@ exports.dc = Discord
 
 exports.config = config
 
-
-// Discordbots.org
-const DBL = require("dblapi.js");
-const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2NDkwODU3ODQ3ODYyMDcwNCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTMzNzY1Mjg3fQ.FQ12uCUqcnhlhSvcD7d8Hcuuy-csfAA6tFN-3seQUI8', bot);
-
 // Optional events
 dbl.on('posted', () => {
     console.log('Server count posted!'.bgGreen);
