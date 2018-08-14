@@ -59,7 +59,7 @@ bot.on("message", message => {
     } //help people learn your prefix}
     if (message.channel.type === 'dm') { // Direct Message
         var embed = new Discord.RichEmbed()
-            .addField(`I don't work in DMs, please use me in a Discord server.`, `Add me! [Click here](http://via.discord.fun/xan).`)
+            .addField(`I don't work in DMs, please use me in a Discord server.`, `Add me! [Click here](https://discordapp.com/oauth2/authorize?client_id=${bot.user.id}&scope=bot&permissions=${config.invite_permission}).`)
             .setColor([255, 0, 0])
         message.channel.send(embed)
         return; //Optionally handle direct messages

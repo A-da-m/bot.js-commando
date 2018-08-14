@@ -3,5 +3,6 @@
     "owner":"your-id-here",
     "status":"with my first bot!",
     "status_color":"online",
+    "invite_permission":"8",
     "embed_footer_text":"this is the text that's in the bottom of all embeds",
 }
