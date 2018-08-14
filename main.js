@@ -55,7 +55,7 @@ bot.on("guildCreate", guild => {
           ],
           timestamp: new Date(),
           footer: {
-            text: `${config.embed_footer_text}`
+            text: `:clock:`
           }
         }
       });
@@ -75,7 +75,7 @@ bot.on("guildDelete", guild => {
           ],
           timestamp: new Date(),
           footer: {
-            text: `${config.embed_footer_text}`
+            text: `:clock:`
           }
         }
       });
