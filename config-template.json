@@ -1,6 +1,7 @@
 {
     "token":"your-token-here",
     "owner":"your-id-here",
+    "prefix":"t!",
     "status":"with my first bot!",
     "status_color":"online",
     "invite_permission":"8",
