@@ -3,3 +3,4 @@ config.json
 
 #ignore the modules
 node_modules/
+package-lock.json
