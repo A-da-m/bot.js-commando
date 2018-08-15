@@ -5,5 +5,6 @@
     "status":"with my first bot!",
     "status_color":"online",
     "invite_permission":"8",
+    "embed_bot_name":"your-bot-name-for-the-embed",
     "embed_footer_text":"this is the text that's in the bottom of all embeds"
 }
