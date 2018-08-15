@@ -38,7 +38,7 @@ bot.on("ready", () => {
     console.log(`[BOT] Activity set to "${config.status}"`.green)
     bot.user.setStatus(config.status_color); //you can set a default playing statys
     console.log(`[BOT] Status set to "${config.status_color}"`.green)
-    console.log(`[BOT] Bot is online!\n[BOT] ${bot.users.size} users, in ${bot.guilds.size} servers connected.`.green); // THe bot users size needs to be replaced by a better code.
+    console.log(`[BOT] Bot is online!\n[BOT] Connected to ${bot.guilds.size} servers.`.green);
     bot.users.get(config.owner).send({
         embed: {
             color: 0x77B255,
