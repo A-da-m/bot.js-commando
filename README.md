@@ -5,7 +5,6 @@ It's still fully in development and we'll start working on a wiki soon:tm:
 
 # Support
 If you need help using this template, when it's getting closer and closer to getting finished (not right now, but you can still join) join our Official Discord server:
-### We'll tell you when it's getting close to being finished
 - [Click here to join](https://discord.gg/fFanWmU)
 
 # Guides
