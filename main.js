@@ -28,7 +28,7 @@ fs.readdirSync("./commands").forEach(f => {
 // List of commands
 exports.c = commands
 console.log(`[BOT] Loading commands...`.green);
-console.log("[BOT] Commands: ".green +Object.keys(commands).join(`, `).cyan)
+console.log("[BOT] Commands: ".green + Object.keys(commands).join(`, `).cyan)
 
 // Error
 bot.on("ready", () => {
@@ -38,36 +38,35 @@ bot.on("ready", () => {
     console.log(`[BOT] Activity set to "${config.status}"`.green)
     bot.user.setStatus(config.status_color); //you can set a default playing statys
     console.log(`[BOT] Status set to "${config.status_color}"`.green)
-    console.log(`[BOT] Bot is online!\n[BOT] ${bot.users.size} users, in ${bot.guilds.size} servers connected.`.green);
+    console.log(`[BOT] Bot is online!\n[BOT] ${bot.users.size} users, in ${bot.guilds.size} servers connected.`.green); // THe bot users size needs to be replaced by a better code.
     bot.users.get(config.owner).send({
         embed: {
-          color: 0x77B255,
-          description: ":white_check_mark: Bot started!",
-          timestamp: new Date(),
-          footer: {
-            text: `⏲`
-          }
+            color: 0x77B255,
+            description: ":white_check_mark: Bot started!",
+            timestamp: new Date(),
+            footer: {
+                text: `⏲`
+            }
         }
-      });
+    });
 });
 
 bot.on("guildCreate", guild => {
     console.log(`[BOT] I've joined the guild ${guild.name} (${guild.id}), owned by ${guild.owner.user.username} (${guild.owner.user.id}).`.green);
     bot.users.get(config.owner).send({
         embed: {
-          color: 0x77B255,
-          fields: [{
-            name: `:white_check_mark: I've joined a guild!`,
-            value: `:speech_balloon: **${guild.name}** (${guild.id})\n:crown: **${guild.owner.user.username}** (${guild.owner.user.id})`
-            // The speech_balloon is the name of the guild and the crown is the guild owner
-          },
-          ],
-          timestamp: new Date(),
-          footer: {
-            text: `⏲`
-          }
+            color: 0x77B255,
+            fields: [{
+                name: `:white_check_mark: I've joined a guild!`,
+                value: `:speech_balloon: **${guild.name}** (${guild.id})\n:crown: **${guild.owner.user.username}** (${guild.owner.user.id})\n:busts_in_silhouette: **${guild.memberCount}** Members`
+                // The speech_balloon is the name of the guild and the crown is the guild owner
+            }, ],
+            timestamp: new Date(),
+            footer: {
+                text: `⏲`
+            }
         }
-      });
+    });
 });
 
 bot.on("guildDelete", guild => {
@@ -75,19 +74,18 @@ bot.on("guildDelete", guild => {
     console.log(`[BOT] I've been removed from: ${guild.name} (id: ${guild.id})`.red);
     bot.users.get(config.owner).send({
         embed: {
-          color: 0xDD2E44,
-          fields: [{
-            name: `:x: I've been removed from a guild!`,
-            value: `:speech_balloon: **${guild.name}** (${guild.id})\n:crown: **${guild.owner.user.username}** (${guild.owner.user.id})`
-            // The speech_balloon is the name of the guild and the crown is the guild owner
-          },
-          ],
-          timestamp: new Date(),
-          footer: {
-            text: `⏲`
-          }
+            color: 0xDD2E44,
+            fields: [{
+                name: `:x: I've been removed from a guild!`,
+                value: `:speech_balloon: **${guild.name}** (${guild.id})\n:crown: **${guild.owner.user.username}** (${guild.owner.user.id})\n:busts_in_silhouette: **${guild.memberCount}** Members`
+                // The speech_balloon is the name of the guild and the crown is the guild owner
+            }, ],
+            timestamp: new Date(),
+            footer: {
+                text: `⏲`
+            }
         }
-      });
+    });
     // client.user.setActivity(`Serving ${client.guilds.size} servers`);
 });
 

@@ -18,8 +18,8 @@ exports.run = (message, args) => {
       name: "General",
       desc: "The general commands"
     },
-    99: {
-      name: "Owner",
+    27: {
+      name: "👑 Owner",
       desc: "Commands only you can use"
     },
   }

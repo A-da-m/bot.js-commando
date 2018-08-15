@@ -37,8 +37,8 @@ exports.run = (message, args) => {
 }
 
 exports.help = {
-  cat: config.permissionlevelowner,
-  perm: 3,
+  cat: catList.owner,
+  perm: 2,
   desc: "Evaluats Code"
 }
 
