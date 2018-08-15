@@ -4,7 +4,6 @@
   "description": "A Template for creating your very own Discord.JS Discord bot. ",
   "main": "main.js",
   "repository": {
-
     "type": "git",
     "url": "git+https://github.com/abcdan/discord-template.git"
   },
