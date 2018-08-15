@@ -12,7 +12,8 @@ If you are new to making Discord bots we recommend that you first take a look at
 - [Discord.js Guide](https://discordjs.guide/#/)
 
 # Bots that use this template
-- [Xan](https://discordbots.org/bot/464908578478620704) is based of this template, it's one of our bots.
+- [Xan](https://discordbots.org/bot/464908578478620704) is based of this template, it's one of our bots. [![Discord Bots](https://discordbots.org/api/widget/status/464908578478620704.svg)](https://discordbots.org/bot/464908578478620704)
+
 
 # Crediting
 If you are planning on using our template, please be kind and credit this repo. somewhere :heart:
