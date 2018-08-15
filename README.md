@@ -3,6 +3,10 @@ A Template for creating your very own Discord.JS Discord bot.
 
 It's still fully in development and we'll start working on a wiki soon:tm:
 
+# Support
+If you need help using this template, when it's getting closer and closer to getting finished (not right now, but you can still join) join our Official Discord server:
+- [Click here to join](https://discord.gg/fFanWmU)
+
 # Guides
 If you are new to making Discord bots we recommend that you first take a look at these guides/docs. if you want to learn more about how to make your own bot.
 
