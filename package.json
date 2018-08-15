@@ -10,7 +10,10 @@
   "keywords": [
     "Node.js"
   ],
-  "author": "discord.fun",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "author": "Daniël Langezaal & CMDJojo",
   "license": "GNU GPLv3",
   "bugs": {
     "url": "https://github.com/abcdan/discord-template/issues"
