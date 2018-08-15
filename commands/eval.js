@@ -1,4 +1,4 @@
-var main = require("../main.js")
+var main = require("../bot.js")
 var config = require("../settings/config.json")
 var catList = require("../settings/catList.json")
 
