@@ -51,14 +51,30 @@ bot.on("ready", () => {
     });
 });
 
-bot.on("guildCreate", guild => {
+bot.on("guildCreate", async guild => {
+    var invite;
+    try {
+        inv = await createInvite(guild)
+        invite = `:link: Join the server [here](http://discord.gg/${inv.code}/)`
+    } catch(e) {
+        switch(e.message) {
+            case "No channels":
+                invite = `:x::link: I found no channels to create an invite for`
+                break;
+            case "Missing permissions":
+                invite = `:x::link: I don't have the permissions to invite you`
+                break;
+            default:
+                invite = `:x::link: I could, somehow, not invite you`
+        }
+    }
     console.log(`[BOT] I've joined the guild ${guild.name} (${guild.id}), owned by ${guild.owner.user.username} (${guild.owner.user.id}).`.green);
     bot.users.get(config.owner).send({
         embed: {
             color: 0x77B255,
             fields: [{
                 name: `:white_check_mark: I've joined a guild!`,
-                value: `:speech_balloon: **${guild.name}** (${guild.id})\n:crown: **${guild.owner.user.username}** (${guild.owner.user.id})\n:busts_in_silhouette: **${guild.memberCount}** Members`
+                value: `:speech_balloon: **${guild.name}** (${guild.id})\n:crown: **${guild.owner.user.username}** (${guild.owner.user.id})\n:busts_in_silhouette: **${guild.memberCount}** Members\n${invite}`
                 // The speech_balloon is the name of the guild and the crown is the guild owner
             }],
             timestamp: new Date(),
@@ -71,6 +87,7 @@ bot.on("guildCreate", guild => {
 
 bot.on("guildDelete", guild => {
     // this event triggers when the bot is removed from a guild.
+
     console.log(`[BOT] I've been removed from: ${guild.name} (id: ${guild.id})`.red);
     bot.users.get(config.owner).send({
         embed: {
@@ -166,6 +183,35 @@ bot.on("error", e => {
         console.log(e)
     }
 })
+
+function createInvite(guild, options) {
+    // Options are optional
+    // Creating invites is async
+    return new Promise((resolve, reject) => {
+        // Check for permissions
+        if(guild.me.hasPermission("CREATE_INSTANT_INVITE")) {
+            // Find "general" text chat
+            var invch = guild.channels.find(c => (c.name.toLowerCase().indexOf("general") !== -1 && c.type === "text"))
+            // If not found, pick first text channel
+            if(!invch) invch = guild.channels.find(c => c.type === "text")
+            // If not found, pick first voice channel
+            if(!invch) invch = guild.channels.find(c => c.type === "voice")
+            // Checks if channel is found
+            if(invch) {
+                // Create invite and resolving promise if found, catching errors
+                invch.createInvite(options).then(resolve).catch(reject)
+            } else {
+                // Reject since no channel was found
+                reject(new Error("No channels"))
+            }
+        } else {
+            // Reject since missing permissions
+            reject(new Error("Missing permissions"))
+        }
+    })
+}
+// Exporting so modules can use it
+exports.createInvite = createInvite
 
 // Catch Errors before they crash the app.
 process.on('uncaughtException', (err) => {
