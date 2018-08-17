@@ -3,23 +3,28 @@ var config = require("../settings/config.json")
 var catList = require("../settings/catList.json")
 
 exports.run = async (message, args) => {
-    if (message.author.id === config.owner) {
+    if(message.author.id === config.owner) {
         message.channel.send('Are you sure you want to **force** the bot to stop? Write yes in chat. (You have 30 seconds)')
             .then(() => {
-                message.channel.awaitMessages(response => response.content === 'yes', {
-                        max: 1,
-                        time: 30000,
-                        errors: ['time'],
-                    })
+                var keys = {"y": true, "yes": true, "proceed": true, "n": false, "no": false, "cancel": false}
+                var filter = m => {
+                    if(m.author.id !== message.author.id || keys[m.content] === undefined || m.channel.id !== message.channel.id) return false;
+                    return true
+                }
+                message.channel.awaitMessages(filter, {
+                    maxMatches: 1,
+                    time: 30000,
+                    errors: ['time'],
+                })
                     .then((collected) => {
-                        if (message.author.id === config.owner) {
-                            process.exit()
+                        if(keys[collected.first().content]) {
+                            message.channel.send("Stopping").then(process.exit)
                         } else {
-                            message.channel.send(`:x: You don't have permissions to do this, only the bot owner can stop me.`)
+                            message.channel.send("Stop canceled")
                         }
                     })
                     .catch(() => {
-                        message.channel.send('There was no collected message that passed the filter within the time limit!');
+                        message.channel.send('Stop canceled');
                     });
             });
     } else {
