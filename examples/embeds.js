@@ -2,6 +2,11 @@ var main = require("../bot.js")
 var config = require("../settings/config.json")
 var catList = require("../settings/catList.json")
 
+/* Credits
+Base for the embeds from
+https://discordjs.guide/#/popular-topics/miscellaneous-examples?id=richembed-builder
+*/
+
 exports.run = (message, args) => {
     message.channel.send(`There are two ways to create embeds, if you check the source code of this then you can see both ways of making them.`)
 
@@ -27,7 +32,18 @@ exports.run = (message, args) => {
         // This is the way that I, abcdan, prefer it since it's a lot more clear to me what does what
         message.channel.send({
             embed: {
-                color: 0xffffff,
+                color: 0x0099ff,
+                title: 'Some title',
+                url: 'https://discord.js.org',
+                author: {
+                    name: 'Some name',
+                    icon_url: 'https://i.imgur.com/wSTFkRM.png',
+                    url: 'https://discord.js.org',
+                },
+                description: 'Some description here',
+                thumbnail: {
+                    url: 'https://i.imgur.com/wSTFkRM.png',
+                },
                 fields: [{
                         name: "This is another cool embed",
                         value: `If you want to see all the things you can do with it`,
@@ -38,14 +54,43 @@ exports.run = (message, args) => {
                         value: `[Click here](https://leovoel.github.io/embed-visualizer/)`,
                         inline: true
                     },
+                    {
+                        name: 'Regular field title',
+                        value: 'Some value here',
+                    },
+                    {
+                        name: '\u200b',
+                        value: '\u200b',
+                        // This is what .addBlankField() does in the other embed type.
+                    },
+                    {
+                        name: 'Inline field title',
+                        value: 'Some value here',
+                        inline: true,
+                    },
+                    {
+                        name: 'Inline field title',
+                        value: 'Some value here',
+                        inline: true,
+                    },
+                    {
+                        name: 'Inline field title',
+                        value: 'Some value here',
+                        inline: true,
+                    },
                 ],
+                image: {
+                    url: 'https://i.imgur.com/wSTFkRM.png',
+                },
                 timestamp: new Date(),
                 footer: {
-                    text: `${config.embed_footer_text}`
-                }
-            }
-        })
-    )
+                    text: config.embed_footer_text,
+                    icon_url: 'https://i.imgur.com/wSTFkRM.png',
+                },
+            },
+        }))
+
+
 }
 
 exports.help = {
