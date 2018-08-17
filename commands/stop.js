@@ -8,7 +8,7 @@ exports.run = async (message, args) => {
             .then(() => {
                 var keys = {"y": true, "yes": true, "proceed": true, "n": false, "no": false, "cancel": false}
                 var filter = m => {
-                    if(m.author.id !== message.author.id || keys[m.content] === undefined || m.channel.id !== message.channel.id) return false;
+                    if(m.author.id !== message.author.id || keys[m.content.toLowerCase()] === undefined || m.channel.id !== message.channel.id) return false;
                     return true
                 }
                 message.channel.awaitMessages(filter, {
@@ -17,7 +17,7 @@ exports.run = async (message, args) => {
                     errors: ['time'],
                 })
                     .then((collected) => {
-                        if(keys[collected.first().content]) {
+                        if(keys[collected.first().content.toLowerCase()]) {
                             message.channel.send("Stopping").then(process.exit)
                         } else {
                             message.channel.send("Stop canceled")
