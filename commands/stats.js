@@ -21,57 +21,55 @@ function msToString(ms) {
 
 // Username
 
-exports.run = (message, args) => {
-  return new Promise(async (resolve, reject) => {
-    var totalCount = 0;
-    main.bot.guilds.forEach(g => {totalCount += g.memberCount})
-    main.bot.fetchUser(config.owner).then(u => {
-      message.channel.send({
-        embed: {
-          color: 0xffffff,
-          fields: [{
-            name: "Total Members",
-            value: `${totalCount}`,
-            "inline": true
-          },
-          {
-            name: "Server Count",
-            value: `${main.bot.guilds.size}`,
-            "inline": true
-          },
-          {
-            name: "Channel count",
-            value: `${main.bot.channels.size}`,
-            "inline": true
-          },
-          {
-            name: "RAM Usage",
-            value: `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`,
-            "inline": true
-          },
-          {
-            name: "Owner",
-            value: `${u.username}#${u.discriminator}`,
-            "inline": true
-          },
-          {
-            name: "Bot Username",
-            value: `${main.bot.user.tag}`,
-            "inline": true
-          },
-          {
-            name: "Uptime",
-            value: `${msToString(main.bot.uptime)}`,
-            "inline": true
-          }
-          ],
-          timestamp: new Date(),
-          footer: {
-            text: `${config.embed_footer_text}`
-          }
+exports.run = async (message, args) => {
+  var totalCount = 0;
+  main.bot.guilds.forEach(g => {totalCount += g.memberCount})
+  main.bot.fetchUser(config.owner).then(u => {
+    message.channel.send({
+      embed: {
+        color: 0xffffff,
+        fields: [{
+          name: "Total Members",
+          value: `${totalCount}`,
+          "inline": true
+        },
+        {
+          name: "Server Count",
+          value: `${main.bot.guilds.size}`,
+          "inline": true
+        },
+        {
+          name: "Channel count",
+          value: `${main.bot.channels.size}`,
+          "inline": true
+        },
+        {
+          name: "RAM Usage",
+          value: `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`,
+          "inline": true
+        },
+        {
+          name: "Owner",
+          value: `${u.username}#${u.discriminator}`,
+          "inline": true
+        },
+        {
+          name: "Bot Username",
+          value: `${main.bot.user.tag}`,
+          "inline": true
+        },
+        {
+          name: "Uptime",
+          value: `${msToString(main.bot.uptime)}`,
+          "inline": true
         }
-      });
-    })
+        ],
+        timestamp: new Date(),
+        footer: {
+          text: `${config.embed_footer_text}`
+        }
+      }
+    });
   })
 }
 

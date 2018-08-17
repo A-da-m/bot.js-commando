@@ -2,24 +2,22 @@ var main = require("../bot.js")
 var config = require("../settings/config.json")
 var catList = require("../settings/catList.json")
 
-exports.run = (message, args) => {
-  return new Promise(async (resolve, reject) => {
-    var varStopwatch = Math.round(main.bot.ping)
-    message.channel.send({
-      embed: {
-        color: 0xffffff,
-        fields: [{
-          name: "Here is my ping!",
-          value: `:hourglass_flowing_sand: ${varStopwatch} ms\n:stopwatch: ${new Date().getTime() - message.createdTimestamp} ms`
-        },
-        ],
-        timestamp: new Date(),
-        footer: {
-          text: `${config.embed_footer_text}`
-        }
+exports.run = async (message, args) => {
+  var varStopwatch = Math.round(main.bot.ping)
+  message.channel.send({
+    embed: {
+      color: 0xffffff,
+      fields: [{
+        name: "Here is my ping!",
+        value: `:hourglass_flowing_sand: ${varStopwatch} ms\n:stopwatch: ${new Date().getTime() - message.createdTimestamp} ms`
+      },
+      ],
+      timestamp: new Date(),
+      footer: {
+        text: `${config.embed_footer_text}`
       }
-    });
-  })
+    }
+  });
 }
 
 exports.help = {
