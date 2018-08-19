@@ -4,7 +4,7 @@ const catList = require("../settings/catList.json")
 
 exports.run = async (message, args) => {
     if(message.author.id === config.owner) {
-        message.channel.send('Are you sure you want to **force** the bot to stop? Write yes in chat. (You have 30 seconds)')
+        message.channel.send('Are you sure you want to **force** the bot to stop? Write \`yes\` in chat. (You have 30 seconds)')
             .then(() => {
                 var keys = {"y": true, "yes": true, "proceed": true, "n": false, "no": false, "cancel": false}
                 var filter = m => {
@@ -18,13 +18,13 @@ exports.run = async (message, args) => {
                 })
                     .then((collected) => {
                         if(keys[collected.first().content.toLowerCase()]) {
-                            message.channel.send("Stopping").then(process.exit)
+                            message.channel.send(":white_check_mark: Shutting down. Bye bye :wave:").then(process.exit)
                         } else {
-                            message.channel.send("Stop canceled")
+                            message.channel.send(":x: Stop canceled")
                         }
                     })
                     .catch(() => {
-                        message.channel.send('Stop canceled');
+                        message.channel.send(':x: Stop canceled');
                     });
             });
     } else {
