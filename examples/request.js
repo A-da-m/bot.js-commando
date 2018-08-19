@@ -21,15 +21,18 @@ exports.run = async (message, args) => {
             }
             */
 
-            let embed = new main.dc.RichEmbed() // Make  the embed
-                .setColor('#0099ff') // Set the color of the embed
-                .setTitle(`:white_check_mark: ${body.title}`) // Title of the embed
-                .addField(`Completed: ${body.completed}`, `ID: ${body.id} - User ID: ${body.userId}`, true)
-                .setTimestamp() // Adds the time on the right in the footer of the embed
-                .setFooter(config.embed_footer_text); // Get the footer text from the config file
-            message.channel.send(embed) // Send the embed in the file
+            let embed = new main.dc.RichEmbed()                                                                         // Make  the embed
+                .setColor('#0099ff')                                                                                    // Set the color of the embed
+                .setTitle(`:white_check_mark: ${body.title}`)                                                           // Title of the embed
+                .addField(`Completed: ${body.completed}`, `ID: ${body.id} - User ID: ${body.userId}`, true)             // Adds the field with information
+                .setTimestamp()                                                                                         // Adds the time on the right in the footer of the embed
+                .setFooter(config.embed_footer_text);                                                                   // Get the footer text from the config file
+            message.channel.send(embed)                                                                                 // Send the embed in the file
         } else {
             // This will show in console that the command is down and will message the botowner with the error.
+            console.log("[BOT] Api down, command:\"request\"".red)
+            message.channel.send("[BOT] Api down, command:\"request\"")
+            bot.users.get(config.owner).send("[BOT] Api down, command:\"request\"")
         }
     })
 }
