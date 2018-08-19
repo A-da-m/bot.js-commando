@@ -1,9 +1,9 @@
 const config = require('./settings/config.json');
 const Discord = require('discord.js');
-var colors = require('colors');
+const colors = require('colors');
 const fs = require("fs");
 const util = require('util');
-var request = require('request')
+const request = require('request')
 const bot = new Discord.Client({
     disableEveryone: true,
     disabledEvents: ['TYPING_START']

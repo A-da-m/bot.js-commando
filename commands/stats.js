@@ -1,6 +1,6 @@
-var main = require("../bot.js")
-var config = require("../settings/config.json")
-var catList = require("../settings/catList.json")
+const main = require("../bot.js")
+const config = require("../settings/config.json")
+const catList = require("../settings/catList.json")
 
 // Uptime function by CMDJojo
 function msToString(ms) {
