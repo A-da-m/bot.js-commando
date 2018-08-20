@@ -7,6 +7,10 @@ const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
 const opusscript = require('opusscript');
 
+/* I learned how to play audio via a bot from this website:
+https://discordjs.guide/#/popular-topics/miscellaneous-examples
+*/
+
 exports.run = async (message, args) => {
     // Put code of command here. You can use await keyword if you need to
     const { voiceChannel } = message.member;
@@ -16,7 +20,7 @@ exports.run = async (message, args) => {
         }
 
         voiceChannel.join().then(connection => {
-            const stream = ytdl('https://www.youtube.com/watch?v=f49ELvryhao', { filter: 'audioonly' });
+            const stream = ytdl('https://www.youtube.com/watch?v=f49ELvryhao', { filter: 'audioonly' }); // This plays the OOF sound effect, as an example.
             const dispatcher = connection.playStream(stream);
 
             dispatcher.on('end', () => voiceChannel.leave());
