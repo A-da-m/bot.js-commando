@@ -18,7 +18,17 @@ exports.run = async (message, args) => {
                 })
                     .then((collected) => {
                         if(keys[collected.first().content.toLowerCase()]) {
-                            message.channel.send(":white_check_mark: Shutting down. Bye bye :wave:").then(process.exit)
+                            message.channel.send(":white_check_mark: Shutting down. Bye bye :wave:").then(
+                            main.bot.users.get(config.owner).send({
+                                embed: {
+                                    color: 0xDD2E44,
+                                    description: ":x: Bot stoped!",
+                                    timestamp: new Date(),
+                                    footer: {
+                                        text: `⏲`
+                                    }
+                                }
+                            })).then(process.exit)
                         } else {
                             message.channel.send(":x: Stop canceled")
                         }
