@@ -30,7 +30,7 @@ exports.run = async (message, args) => {
 exports.help = {
     cat: catList.general,
     perm: 1,
-    desc: "Put command description over here"
+    desc: "Play an Youtube video's audio"
 }
 
 exports.isPublic = true
