@@ -1,7 +1,8 @@
 # bot.js [![Dependencies](https://david-dm.org/abcdan/bot.js.svg)](https://github.com/abcdan/bot.js)
 A Template for creating your very own Discord.JS Discord bot.
 
-It's still fully in development and we'll start working on a wiki soon:tm:
+It's still fully in development, and a lot of things can still change.
+[How to set it up](https://github.com/abcdan/bot.js/wiki/Installation)
 
 # Support
 If you need help using this template, when it's getting closer and closer to getting finished (not right now, but you can still join) join our Official Discord server:
