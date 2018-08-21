@@ -39,7 +39,8 @@ bot.on("ready", () => {
     bot.user.setStatus(config.status_color); //you can set a default playing statys
     console.log(`[BOT] Status set to "${config.status_color}"`.green)
     console.log(`[BOT] Bot is online!\n[BOT] Connected to ${bot.guilds.size} servers.`.green);
-    bot.users.get(config.owner).send({
+    // Remove the /* <script> */ from the next few lines if you want a message if the bot starts, which could be annoying and doesn't work when sharded.
+    /*bot.users.get(config.owner).send({
         embed: {
             color: 0x77B255,
             description: ":white_check_mark: Bot started!",
@@ -48,7 +49,7 @@ bot.on("ready", () => {
                 text: `⏲`
             }
         }
-    });
+    });*/
 });
 
 bot.on("guildCreate", async guild => {
