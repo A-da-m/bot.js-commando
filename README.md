@@ -1,4 +1,4 @@
-# bot.js-commando [![Dependencies](https://david-dm.org/A-da-m/bot.js-commando)](https://github.com/A-da-m/bot.js-commando)
+# bot.js-commando [![Dependencies](https://david-dm.org/A-da-m/bot.js-commando.svg)](https://github.com/A-da-m/bot.js-commando)
 A Template for creating your very own discord.js-commando Discord bot.
 
 It's still fully in development, and a lot of things can still change.
