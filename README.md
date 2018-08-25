@@ -1,4 +1,4 @@
-# bot.js [![Dependencies](https://david-dm.org/abcdan/bot.js.svg)](https://github.com/abcdan/bot.js)
+# bot.js-commando [![Dependencies](https://david-dm.org/A-da-m/bot.js-commando)](https://github.com/A-da-m/bot.js-commando)
 A Template for creating your very own Discord.JS Discord bot.
 
 It's still fully in development, and a lot of things can still change.
@@ -18,7 +18,7 @@ If you are new to making Discord bots we recommend that you first take a look at
 - [Evie's guide to learn JS](https://evie.gitbook.io/js/)
 
 # Bots that use this template
-- [Xan](https://discordbots.org/bot/464908578478620704) is based of this template, it's one of our bots. [![Discord Bots](https://discordbots.org/api/widget/status/464908578478620704.svg)](https://discordbots.org/bot/464908578478620704)
+- COMING SOON
 
 
 # Crediting
