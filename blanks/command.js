@@ -1,15 +1,16 @@
-const main = require("../bot.js")
-const config = require("../settings/config.json")
-const catList = require("../settings/catList.json")
+const { Command } = require('discord.js-commando')
 
-exports.run = async (message, args) => {
-    // Put code of command here. You can use await keyword if you need to
+module.exports = class helpCommand extends Command {
+  constructor (client) {
+    super(client, {
+      name: 'command-name-goes-here',
+      aliases: ['command-aliases-goes-here', 'aliases'],
+      group: 'command-name-goes-here',
+      memberName: 'help',
+      description: 'Description goes here'
+    })
+  }
+  async run (msg, { command }) {
+    // Code goes here
+  }
 }
-
-exports.help = {
-    cat: catList.general,
-    perm: 1,
-    desc: "Put command description over here"
-}
-
-exports.isPublic = true
